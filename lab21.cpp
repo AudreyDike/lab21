@@ -40,3 +40,26 @@ private:
 
 public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
+ // Push back method for Goat objects
+    void push_back(Goat goat) {
+        Node* newNode = new Node(goat);
+        if (!tail)
+            head = tail = newNode;
+        else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
+
+    // Push front method for Goat objects
+    void push_front(Goat goat) {
+        Node* newNode = new Node(goat);
+        if (!head)
+            head = tail = newNode;
+        else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
