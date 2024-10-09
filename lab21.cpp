@@ -89,3 +89,32 @@ public:
             current = current->prev;
         }
     }
+
+    ~DoublyLinkedList() {
+        while (head) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+};
+const int MAX_LS = 100;  
+const int MIN_LS = 1;
+int main() {
+    srand(time(0));
+    DoublyLinkedList goatList;
+
+    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
+    for (int i = 0; i < size; ++i) {
+        Goat goat; 
+        goatList.push_back(goat);
+    }
+
+    cout << "Forward: " << endl;
+    goatList.print();
+    cout << "\n";
+    cout << "Backward: " << endl;
+    goatList.print_reverse();
+
+    return 0;
+}
