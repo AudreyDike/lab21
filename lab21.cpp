@@ -63,3 +63,29 @@ public:
             head = newNode;
         }
     }
+
+    // Print the list forward
+    void print() {
+        if (!head) {
+            cout << "List is empty" << endl;
+            return;
+        }
+        Node* current = head;
+        while (current) {
+            cout << current->data.name << " (" << current->data.color << ", " << current->data.age << ")" << endl;
+            current = current->next;
+        }
+    }
+
+    // Print the list backward
+    void print_reverse() {
+        if (!tail) {
+            cout << "List is empty" << endl;
+            return;
+        }
+        Node* current = tail;
+        while (current) {
+            cout << current->data.name << " (" << current->data.color << ", " << current->data.age << ")" << endl;
+            current = current->prev;
+        }
+    }
